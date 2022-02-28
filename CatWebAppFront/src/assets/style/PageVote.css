@@ -1,0 +1,10 @@
+.containerImages{
+    width:80vw;
+    height:80vh;
+    display: flex;
+    border: 5px solid rgb(111,41,97);
+    border-radius: .5em;
+    padding: 10px;
+    margin: 1em;
+    justify-content: space-evenly;
+  }

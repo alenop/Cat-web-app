@@ -1,21 +1,5 @@
 /* color palette from <https://github.com/vuejs/theme> */
-.containerImages{
-  width:80vw;
-  height:80vh;
-  display: flex;
-  border: 5px solid rgb(111,41,97);
-  border-radius: .5em;
-  padding: 10px;
-  margin: 1em;
-  justify-content: space-evenly;
-}
-.left{
-  
-  /*margin-right: 20%;*/
-}
-.right {
-  /*margin-left: 20%;*/
-}
+
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;

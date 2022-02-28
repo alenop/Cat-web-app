@@ -19,6 +19,7 @@ import Cat from "./components/Cat.vue"
 
 <style>
 @import "./assets/base.css";
+@import "./assets/style/PageVote.css";
 
 #app {
   max-width: 1280px;

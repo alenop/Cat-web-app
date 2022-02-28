@@ -2,6 +2,7 @@ package com.atelier.CatWebApp.roads;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +15,10 @@ import java.util.ArrayList;
 import org.javatuples.Pair;
 
 @RestController()
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/cat")
 public class CatRoad {
-    private MainController mainController;
+    private MainController mainController = new MainController();
 
     @GetMapping("/Get")
     public ResponseEntity<ArrayList<Pair<String,String>>> giveCats(){
@@ -29,7 +31,7 @@ public class CatRoad {
         }
     }
     
-    @GetMapping("/VoteCat/{ID}")
+    @RequestMapping("/VoteCat/{ID}")
     public void voteCat(@PathVariable String ID) {
     	mainController.voteCat(ID);
     }

@@ -8,14 +8,42 @@ import Cat from "./components/Cat.vue"
   <header>
   <div class="containerImages">
     <div class="left">
-      <Cat CatName="test2" Tmp="test2image" />
+      <Cat v-on:update="changeImages()" CatName="namelessCat1" :Src="left" :ID="IDLeftCat"/>
     </div>
     <div class="right">
-      <Cat CatName="test1" Tmp="test1image" />
+      <Cat v-on:update="changeImages()" CatName="namelessCat2" :Src="right" :ID="IDRightCat" />
     </div>
   </div>
   </header>
 </template>
+<script>
+import axios from "axios";
+export default {
+  methods:{
+    changeImages(){
+      axios.get("http://localhost:8080/cat/Get").then((response) => {
+      this.left=response.data[0].value1;
+      this.right=response.data[1].value1;
+      this.IDLeftCat=response.data[0].value0;
+      this.IDRightCat=response.data[1].value0;
+      })
+    }
+  },
+  setup() {
+    this.brave="strong"
+  },
+  data() {
+    return {
+      right:"DefaultRight",
+      left:"DefaultLeft",
+
+    }
+  },
+  mounted() {
+    this.changeImages();
+  }
+}
+</script>
 
 <style>
 @import "./assets/base.css";

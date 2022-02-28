@@ -4,9 +4,13 @@ defineProps({
     type: String,
     required: true,
   },
-  Tmp:{
+  Src:{
     type: String,
     required: true,
+  },
+  ID:{
+      type:String,
+      required: true
   }
 });
 </script>
@@ -15,16 +19,21 @@ defineProps({
     <h1 class="titre">{{CatName}}</h1>
     <div class="col-size">
     <div class="vert-center">
-    <p @click="send()">{{Tmp}}</p>
+        <img @click="send()" width="250" height="250" :src="Src"/>
     </div>
     </div>
   </div>
 </template>
 <script>
+import axios from "axios"
 export default {
     methods:{
         send(){
-            console.log(this.Tmp)
+            
+            console.log("vote");
+            axios.request("http://localhost:8080/cat/VoteCat/"+this.ID);
+            this.$emit("update");
+            
         }
     }
 }

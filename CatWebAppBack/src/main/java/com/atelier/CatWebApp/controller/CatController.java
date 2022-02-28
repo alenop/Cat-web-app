@@ -39,6 +39,7 @@ public class CatController {
     		if(nbCat1 == i || nbCat2 == i) {
     			catsToCompare.add(new Pair(cat.getKey(),cat.getValue().getSrcImage()));
     		}
+    		i++;
     	}
     	return catsToCompare;
     }

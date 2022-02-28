@@ -1,0 +1,14 @@
+.vert-center {
+    margin-top:25vh;
+    margin-bottom: 50vh;
+    align-items: center;
+}
+.vert-center p {
+    color: blue;
+    text-align: center;
+    font-size:24px;
+
+}
+.titre {
+    margin-bottom:25vh;
+}

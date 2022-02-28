@@ -1,26 +1,20 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
+import Cat from "./components/Cat.vue"
 </script>
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="containerImages">
+    <div class="left">
+      <Cat CatName="test2" Tmp="test2image" />
     </div>
+    <div class="right">
+      <Cat CatName="test1" Tmp="test1image" />
+    </div>
+  </div>
   </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
 <style>

@@ -1,0 +1,8 @@
+.classment {
+    display:flex;
+    flex-direction: row;
+}
+
+.Vote{
+    margin-left: 50vw;
+}

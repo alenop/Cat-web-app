@@ -2,23 +2,20 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
 import Cat from "./components/Cat.vue"
+import CatClassment from "./components/CatForClassment.vue"
+import Cl from "./pages/Classment.vue"
 </script>
 
 <template>
   <header>
-  <div class="containerImages">
-    <div class="left">
-      <Cat v-on:update="changeImages()" CatName="namelessCat1" :Src="left" :ID="IDLeftCat"/>
-    </div>
-    <div class="right">
-      <Cat v-on:update="changeImages()" CatName="namelessCat2" :Src="right" :ID="IDRightCat" />
-    </div>
-  </div>
+  <Cl />
   </header>
 </template>
 <script>
 import axios from "axios";
+import Classment from './pages/Classment.vue';
 export default {
+  components: { Classment },
   methods:{
     changeImages(){
       axios.get("http://localhost:8080/cat/Get").then((response) => {

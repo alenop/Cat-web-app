@@ -13,4 +13,7 @@ public class MainController {
     public void voteCat(String ID) {
     	catController.voteCat(ID);
     }
+    public  ArrayList<Pair<Integer, String>> getAllCats(){
+        return catController.getAllCats();
+    }
 }

@@ -2,6 +2,7 @@ package com.atelier.CatWebApp.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -45,7 +46,31 @@ public class CatController {
     	}
     	return catsToCompare;
     }
-    public void voteCat(String id) {
-    	Cats.get(id).Vote();
+    public void voteCat(String ID) {
+    	Cats.get(ID).Vote();
+    }
+    public ArrayList<Pair<Integer,String>> getAllCats() {
+    	ArrayList<Pair<Integer,String>> cats = new ArrayList<>();
+    	if(Cats==null) {
+    		return null;
+    	}
+    	for (Entry<String, Cat> cat : Cats.entrySet()) {
+    			cats.add(new Pair(cat.getValue().getVote(),cat.getValue().getSrcImage()));
+    		}
+    	arrange(cats);
+    	return cats;
+    }
+    public void arrange(ArrayList<Pair<Integer,String>> cats) {
+    	cats.sort(new SortByVote());
+    }
+    class SortByVote implements Comparator<Pair<Integer,String>> {
+    	 
+        // Method
+        // Sorting in descending order of vote number
+        public int compare(Pair<Integer,String> a, Pair<Integer,String> b)
+        {
+     
+            return b.getValue0() - a.getValue0();
+        }
     }
 }

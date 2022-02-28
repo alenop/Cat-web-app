@@ -25,7 +25,9 @@ public class CatController {
     public ArrayList<Pair<String,String>> getCats(){
         return choose();
     }
-    
+    public Cat getCat(String ID) {
+    	return Cats.get(ID);
+    }
     public  ArrayList<Pair<String,String>> choose() {
     	ArrayList<Pair<String,String>> catsToCompare = new ArrayList<>();
     	int i=0;

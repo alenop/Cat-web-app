@@ -30,7 +30,15 @@ public class CatRoad {
         	return new ResponseEntity<>(CatsToCompare,HttpStatus.EXPECTATION_FAILED);
         }
     }
-    
+    @GetMapping("/GetAll")
+    public ResponseEntity<ArrayList<Pair<Integer,String>>> getAllCatsSorted() {
+    	ArrayList<Pair<Integer, String>> AllCats = mainController.getAllCats();
+    	if(AllCats!=null) {
+    		return new ResponseEntity<>(AllCats,HttpStatus.ACCEPTED);
+    	}else {
+    		return new ResponseEntity<>(AllCats,HttpStatus.EXPECTATION_FAILED);
+    	}
+    }
     @RequestMapping("/VoteCat/{ID}")
     public void voteCat(@PathVariable String ID) {
     	mainController.voteCat(ID);

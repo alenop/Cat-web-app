@@ -38,7 +38,7 @@ export default {
       right:"DefaultRight",
       left:"DefaultLeft",
       IDLeftCat:"",
-      IDRightCat:"",
+      IDRightCat:"", 
 
     }
   },

@@ -1,50 +1,46 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
-import Cat from "./components/Cat.vue"
-import CatClassment from "./components/CatForClassment.vue"
+import Vote from "./pages/Vote.vue"
 import Cl from "./pages/Classment.vue"
 </script>
 
 <template>
-  <header>
+<div>
+<div v-if="votePage">
+  <Vote />
+</div>
+  <div v-else>
   <Cl />
-  </header>
+  </div>
+</div>
 </template>
 <script>
 import axios from "axios";
-import Classment from './pages/Classment.vue';
 export default {
-  components: { Classment },
   methods:{
-    changeImages(){
-      axios.get("http://localhost:8080/cat/Get").then((response) => {
-      this.left=response.data[0].value1;
-      this.right=response.data[1].value1;
-      this.IDLeftCat=response.data[0].value0;
-      this.IDRightCat=response.data[1].value0;
-      })
+    changePage(a){
+      console.log(a)
+      this.votePage=!this.votePage
     }
   },
   setup() {
-    this.brave="strong"
+    this.votePage=true
   },
   data() {
     return {
       right:"DefaultRight",
       left:"DefaultLeft",
-
+      votePage:true
     }
   },
   mounted() {
-    this.changeImages();
+    this.vote=true
   }
 }
 </script>
 
 <style>
 @import "./assets/base.css";
-@import "./assets/style/PageVote.css";
+
 
 #app {
   max-width: 1280px;

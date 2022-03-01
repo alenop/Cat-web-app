@@ -3,8 +3,11 @@ import CatClassment from "../components/CatForClassment.vue"
 </script>
 <template>
 <header  >
-    <button @click="a" />
+  <div class="containerClassment">
+    <button @click="changePage()">GoToVote !</button>
+    
     <CatClassment v-for="item in cats" :key="item" :Src="item.value1" :NbVote="item.value0"/>
+    </div>
   </header>    
 </template>
 <style scoped>
@@ -18,6 +21,9 @@ export default {
       axios.get("http://localhost:8080/cat/GetAll").then((response) => {
           this.cats=response.data;
       })
+    },
+    changePage(){
+      this.$parent.$data.votePage=true
     }
   },
   data(){

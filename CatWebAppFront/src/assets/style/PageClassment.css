@@ -2,7 +2,10 @@
     display:flex;
     flex-direction: row;
 }
-
+.containerClassment{
+    display:flex;
+    flex-direction: column;
+}
 .Vote{
-    margin-left: 50vw;
+    margin-left: 10vw;
 }

@@ -29,11 +29,8 @@ import axios from "axios"
 export default {
     methods:{
         send(){
-            
-            console.log("vote");
             axios.request("http://localhost:8080/cat/VoteCat/"+this.ID);
-            this.$emit("update");
-            
+            this.$emit("update")
         }
     }
 }

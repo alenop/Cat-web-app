@@ -6,7 +6,7 @@ import Cl from "./pages/Classment.vue"
 <template>
 <div>
 <div v-if="votePage">
-  <Vote />
+  <Vote /> 
 </div>
   <div v-else>
   <Cl />

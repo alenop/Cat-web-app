@@ -4,36 +4,38 @@ defineProps({
     type: String,
     required: true,
   },
-  Src:{
+  Src: {
     type: String,
     required: true,
   },
-  ID:{
-      type:String,
-      required: true
-  }
+  ID: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 <template>
   <div id="Content">
-    <h1 class="titre">{{CatName}}</h1>
+    <h1 class="titre">{{ CatName }}</h1>
     <div class="col-size">
-    <div class="vert-center">
-        <img @click="send()" width="250" height="250" :src="Src"/>
-    </div>
+      <div class="vert-center">
+        <img @click="send()" width="250" height="250" :src="Src" />
+      </div>
     </div>
   </div>
 </template>
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
-    methods:{
-        send(){
-            axios.request("https://cutestcat.osc-fr1.scalingo.io/cat/VoteCat/"+this.ID);
-            this.$emit("update")
-        }
-    }
-}
+  methods: {
+    send() {
+      axios.request(
+        "https://cutestcat.osc-fr1.scalingo.io/cat/VoteCat/" + this.ID
+      );
+      this.$emit("update");
+    },
+  },
+};
 /*<img
       alt="Vue logo"
       class="logo"
@@ -44,5 +46,5 @@ export default {
     */
 </script>
 <style scoped>
-@import '../assets/style/CatComponent.css' 
+@import "../assets/style/CatComponent.css";
 </style>

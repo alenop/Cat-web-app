@@ -17,29 +17,30 @@ import com.atelier.CatWebApp.controller.MainController;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/cat")
 public class CatRoad {
-    private MainController mainController = new MainController();
+	private MainController mainController = new MainController();
 
-    @GetMapping("/Get")
-    public ResponseEntity<ArrayList<Pair<String,String>>> giveCats(){
-    	ArrayList<Pair<String,String>> CatsToCompare = mainController.getCats();
-        if(CatsToCompare.size()==2) {
-        	return new ResponseEntity<>(CatsToCompare,HttpStatus.ACCEPTED);
-        }
-        else {
-        	return new ResponseEntity<>(CatsToCompare,HttpStatus.EXPECTATION_FAILED);
-        }
-    }
-    @GetMapping("/GetAll")
-    public ResponseEntity<ArrayList<Pair<Integer,String>>> getAllCatsSorted() {
-    	ArrayList<Pair<Integer, String>> AllCats = mainController.getAllCats();
-    	if(AllCats!=null) {
-    		return new ResponseEntity<>(AllCats,HttpStatus.ACCEPTED);
-    	}else {
-    		return new ResponseEntity<>(AllCats,HttpStatus.EXPECTATION_FAILED);
-    	}
-    }
-    @RequestMapping("/VoteCat/{ID}")
-    public void voteCat(@PathVariable String ID) {
-    	mainController.voteCat(ID);
-    }
+	@GetMapping("/Get")
+	public ResponseEntity<ArrayList<Pair<String, String>>> giveCats() {
+		ArrayList<Pair<String, String>> CatsToCompare = mainController.getCats();
+		if (CatsToCompare.size() == 2) {
+			return new ResponseEntity<>(CatsToCompare, HttpStatus.ACCEPTED);
+		} else {
+			return new ResponseEntity<>(CatsToCompare, HttpStatus.EXPECTATION_FAILED);
+		}
+	}
+
+	@GetMapping("/GetAll")
+	public ResponseEntity<ArrayList<Pair<Integer, String>>> getAllCatsSorted() {
+		ArrayList<Pair<Integer, String>> AllCats = mainController.getAllCats();
+		if (AllCats != null) {
+			return new ResponseEntity<>(AllCats, HttpStatus.ACCEPTED);
+		} else {
+			return new ResponseEntity<>(AllCats, HttpStatus.EXPECTATION_FAILED);
+		}
+	}
+
+	@RequestMapping("/VoteCat/{ID}")
+	public void voteCat(@PathVariable String ID) {
+		mainController.voteCat(ID);
+	}
 }

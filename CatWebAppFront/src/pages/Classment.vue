@@ -18,7 +18,7 @@ import axios from "axios";
 export default {
   methods:{
     getClassment(){
-      axios.get("http://localhost:8080/cat/GetAll").then((response) => {
+      axios.get("https://cutestcat.osc-fr1.scalingo.io/cat/GetAll").then((response) => {
           this.cats=response.data;
       })
     },

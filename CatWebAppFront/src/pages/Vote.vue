@@ -21,14 +21,13 @@ import axios from "axios";
 export default {
   methods:{
     changeImages(){
-        if(this.fromVote){
       axios.get("https://cutestcat.osc-fr1.scalingo.io/cat/Get").then((response) => {
       this.left=response.data[0].value1;
       this.right=response.data[1].value1;
       this.IDLeftCat=response.data[0].value0;
       this.IDRightCat=response.data[1].value0;
       
-      })}},
+      })},
       changePage(){
           this.$parent.$data.votePage=false
       }

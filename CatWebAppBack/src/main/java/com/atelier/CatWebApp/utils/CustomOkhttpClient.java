@@ -1,11 +1,10 @@
 package com.atelier.CatWebApp.utils;
 
 
-import okhttp3.OkHttpClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.net.http.HttpClient;
+import okhttp3.OkHttpClient;
 
 @Configuration
 public class CustomOkhttpClient {

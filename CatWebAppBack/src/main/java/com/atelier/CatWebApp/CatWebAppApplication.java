@@ -1,4 +1,4 @@
-package com.atelier.CatWebApp;
+package com.atelier.CatWebApp; 
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

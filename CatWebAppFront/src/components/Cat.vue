@@ -29,7 +29,7 @@ import axios from "axios"
 export default {
     methods:{
         send(){
-            axios.request("http://localhost:8080/cat/VoteCat/"+this.ID);
+            axios.request("https://cutestcat.osc-fr1.scalingo.io/cat/VoteCat/"+this.ID);
             this.$emit("update")
         }
     }

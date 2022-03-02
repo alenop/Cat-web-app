@@ -5,15 +5,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.atelier.CatWebApp.model.Cat;
-import com.atelier.CatWebApp.model.CatsData;
-import com.atelier.CatWebApp.utils.CustomObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.fasterxml.jackson.databind.util.JSONWrappedObject;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

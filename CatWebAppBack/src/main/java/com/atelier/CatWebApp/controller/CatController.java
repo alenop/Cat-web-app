@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import com.atelier.CatWebApp.model.Cat;
-
 import org.javatuples.Pair;
+
+import com.atelier.CatWebApp.model.Cat;
 
 public class CatController {
     private FileController fileController;

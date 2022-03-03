@@ -65,8 +65,8 @@ public class CatControllerTests {
 		catController.voteCat(ID1);
 		
 		ArrayList<Pair<Integer,String>> catsVote = new ArrayList<>();
-		catsVote.add(new Pair(catController.getCat(ID).getVote(),"looser"));
-		catsVote.add(new Pair(catController.getCat(ID1).getVote(),"winner"));
+		catsVote.add(new Pair<Integer, String>(catController.getCat(ID).getVote(),"looser"));
+		catsVote.add(new Pair<Integer, String>(catController.getCat(ID1).getVote(),"winner"));
 		catController.arrange(catsVote);
 		
 		assertEquals(3,catsVote.get(0).getValue0());

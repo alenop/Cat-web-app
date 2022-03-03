@@ -23,6 +23,22 @@ public class CatControllerTests {
 	}
 	
 	@Test 
+	public void shouldHaveEqualsVotes(){
+		CatController catController = new CatController();
+		ArrayList<Pair<String,String>> catsToCompare; 
+		do {
+		catsToCompare = catController.chooseRandomCats();
+		catController.voteCat(catsToCompare.get(0).getValue0());
+		catController.voteCat(catsToCompare.get(1).getValue0());
+		}while (catController.getNbAllVote()<=50);
+		
+		catsToCompare = catController.choose();
+		Cat Cat1 = catController.getCat(catsToCompare.get(0).getValue0());
+		Cat Cat2 = catController.getCat(catsToCompare.get(0).getValue0());
+		
+		assertEquals(Cat1.getVote(),Cat2.getVote());
+	}
+	@Test 
 	public void shouldVoteForCat() {
 		CatController catController = new CatController();
 		ArrayList<Pair<String, String>> cats = catController.choose();
@@ -49,8 +65,8 @@ public class CatControllerTests {
 		catController.voteCat(ID1);
 		
 		ArrayList<Pair<Integer,String>> catsVote = new ArrayList<>();
-		catsVote.add(new Pair(catController.getCat(ID).getVote(),"looser"));
-		catsVote.add(new Pair(catController.getCat(ID1).getVote(),"winner"));
+		catsVote.add(new Pair<Integer, String>(catController.getCat(ID).getVote(),"looser"));
+		catsVote.add(new Pair<Integer, String>(catController.getCat(ID1).getVote(),"winner"));
 		catController.arrange(catsVote);
 		
 		assertEquals(3,catsVote.get(0).getValue0());

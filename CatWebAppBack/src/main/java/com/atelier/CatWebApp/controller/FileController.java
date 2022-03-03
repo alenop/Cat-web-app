@@ -34,7 +34,7 @@ public class FileController {
 				// System.out.println(data.getCats());
 				if (data2.get("images").size() > 0) {
 					for (LinkedHashMap<String, String> catsImages : data2.get("images")) {
-						cats.put(catsImages.get("id"), new Cat(catsImages.get("url")));
+						cats.put(catsImages.get("id"), new Cat(catsImages.get("url"),catsImages.get("id")));
 					}
 					return cats;
 				} else {

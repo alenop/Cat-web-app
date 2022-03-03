@@ -1,46 +1,45 @@
 <script setup>
-import Vote from "./pages/Vote.vue"
-import Cl from "./pages/Classment.vue"
+import Vote from "./pages/Vote.vue";
+import Cl from "./pages/Classment.vue";
 </script>
 
 <template>
-<div>
-<div v-if="votePage">
-  <Vote /> 
-</div>
-  <div v-else>
-  <Cl />
+  <div>
+    <div v-if="votePage">
+      <Vote />
+    </div>
+    <div v-else>
+      <Cl />
+    </div>
   </div>
-</div>
 </template>
 <script>
 import axios from "axios";
 export default {
-  methods:{
-    changePage(a){
-      console.log(a)
-      this.votePage=!this.votePage
-    }
+  methods: {
+    changePage(a) {
+      console.log(a);
+      this.votePage = !this.votePage;
+    },
   },
   setup() {
-    this.votePage=true
+    this.votePage = true;
   },
   data() {
     return {
-      right:"DefaultRight",
-      left:"DefaultLeft",
-      votePage:true
-    }
+      right: "DefaultRight",
+      left: "DefaultLeft",
+      votePage: true,
+    };
   },
   mounted() {
-    this.vote=true
-  }
-}
+    this.vote = true;
+  },
+};
 </script>
 
 <style>
 @import "./assets/base.css";
-
 
 #app {
   max-width: 1280px;

@@ -43,11 +43,14 @@ public class CatController {
 
 		for (Entry<String, Cat> cat : Cats.entrySet()) {
 			if (nbCat1 == i || nbCat2 == i) {
-				catsToCompare.add(new Pair(cat.getKey(), cat.getValue().getSrcImage()));
+				catsToCompare.add(new Pair<String, String>(cat.getKey(),//ID
+						cat.getValue().getSrcImage()));//Link Image
 			}
 			i++;
 		}
 		return catsToCompare;
+		//need two pair with each pair giving
+		//the ID then The link of the image
 	}
 
 	public void voteCat(String ID) {
@@ -60,7 +63,7 @@ public class CatController {
 			return null;
 		}
 		for (Entry<String, Cat> cat : Cats.entrySet()) {
-			cats.add(new Pair(cat.getValue().getVote(), cat.getValue().getSrcImage()));
+			cats.add(new Pair<Integer, String>(cat.getValue().getVote(), cat.getValue().getSrcImage()));
 		}
 		arrange(cats);
 		return cats;

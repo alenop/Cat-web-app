@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import org.javatuples.Pair;
 
@@ -13,7 +14,11 @@ import com.atelier.CatWebApp.model.Cat;
 public class CatController {
 	private FileController fileController;
 	private HashMap<String, Cat> Cats;
+	private int nbAllVote;
 
+	public int getNbAllVote() {
+		return nbAllVote;
+	}
 	public CatController() {
 		this.fileController = new FileController();
 		try {
@@ -31,8 +36,37 @@ public class CatController {
 	public Cat getCat(String ID) {
 		return Cats.get(ID);
 	}
+	public ArrayList<Pair<String,String>> choose(){
+		if (nbAllVote<50) {
+			return chooseRandomCats();
+		}else {
+			return chooseRandomCatsWithEqualsVotes();
+		}
+	}
+	public ArrayList<Pair<String, String>> chooseRandomCatsWithEqualsVotes() {
+		ArrayList<Pair<String, String>> catsToCompare = new ArrayList<>();
+		int i = 0;
+		Random generator = new Random();
+		Object[] values = Cats.values().toArray();
 
-	public ArrayList<Pair<String, String>> choose() {
+		Cat	Cat1 = (Cat) values[generator.nextInt(values.length)];	
+		//int nbCat1 = (int) (Math.random() * Cats.size());
+		int nbVoteOfCat1 = Cat1.getVote();
+		Cat Cat2;
+		do {
+			Cat2 = (Cat) values[generator.nextInt(values.length)];
+			
+		} while (Cat1.equals(Cat2) || nbVoteOfCat1 != Cat2.getVote() );
+		
+		
+		catsToCompare.add(new Pair<String,String>(Cat1.getID(), Cat1.getSrcImage()));
+		catsToCompare.add(new Pair<String,String>(Cat2.getID(), Cat2.getSrcImage()));
+		
+		return catsToCompare;
+		//need two pair with each pair giving
+		//the ID then The link of the image
+	}
+	public ArrayList<Pair<String, String>> chooseRandomCats() {
 		ArrayList<Pair<String, String>> catsToCompare = new ArrayList<>();
 		int i = 0;
 		int nbCat1 = (int) (Math.random() * Cats.size());
@@ -55,6 +89,7 @@ public class CatController {
 
 	public void voteCat(String ID) {
 		Cats.get(ID).Vote();
+		nbAllVote++;
 	}
 
 	public ArrayList<Pair<Integer, String>> getAllCats() {

@@ -23,6 +23,22 @@ public class CatControllerTests {
 	}
 	
 	@Test 
+	public void shouldHaveEqualsVotes(){
+		CatController catController = new CatController();
+		ArrayList<Pair<String,String>> catsToCompare; 
+		do {
+		catsToCompare = catController.chooseRandomCats();
+		catController.voteCat(catsToCompare.get(0).getValue0());
+		catController.voteCat(catsToCompare.get(1).getValue0());
+		}while (catController.getNbAllVote()<=50);
+		
+		catsToCompare = catController.choose();
+		Cat Cat1 = catController.getCat(catsToCompare.get(0).getValue0());
+		Cat Cat2 = catController.getCat(catsToCompare.get(0).getValue0());
+		
+		assertEquals(Cat1.getVote(),Cat2.getVote());
+	}
+	@Test 
 	public void shouldVoteForCat() {
 		CatController catController = new CatController();
 		ArrayList<Pair<String, String>> cats = catController.choose();
